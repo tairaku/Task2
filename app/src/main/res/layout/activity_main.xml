@@ -4,7 +4,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:background="#ffffd679">
+    android:background="#ffffd679"
+    android:id="@+id/main"
+    android:focusable="false">
 
     <ImageView
         android:layout_width="200dp"
@@ -19,11 +21,13 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="カレンダー"
-        android:id="@+id/button"
+        android:id="@+id/btnToList"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="#ffff7228" />
+        android:background="#ffff7228"
+        android:onClick="list"
+        android:clickable="true" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
@@ -35,5 +39,5 @@
         android:layout_marginTop="56dp"
         android:background="#ffffffff"
         android:progress="60"
-        android:max="100" />
+        android:max="100"/>
 </RelativeLayout>
