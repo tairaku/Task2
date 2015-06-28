@@ -24,6 +24,10 @@
             android:name=".AddListActivity"
             android:label="@string/title_activity_add_list" >
         </activity>
+        <activity
+            android:name=".DataPicker"
+            android:label="@string/title_activity_data_picker" >
+        </activity>
     </application>
 
 </manifest>

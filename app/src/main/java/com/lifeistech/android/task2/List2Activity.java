@@ -17,43 +17,29 @@ import java.util.List;
 public class List2Activity extends ActionBarActivity {
 
     Homework homework;
+    ListView listview;
+    ListAdapter adapter;
+    Homework remove;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list2);
         String[] array ={"Apple","Banana","Orange"};
-        //ArrayAdapter<String> array2=AddListActivity.adapter;
         ArrayAdapter<String> array3=AddListActivity.adapter2;
-        //ArrayAdapter<Homework> array4=AddListActivity.adapter4;
         ArrayAdapter arrayadapter=new ArrayAdapter(this,R.layout.rowdata2,array);
-        //ListView listview =(ListView)findViewById(R.id.listView);
-        //MyListAdapter myadapter=new MyListAdapter(this,R.layout.rowdata2,)
         List<Homework> items = new ArrayList<Homework>();
-        //listview.setAdapter(arrayadapter);
-        //listview.setAdapter(array2);
-        //listview.setAdapter(array3);
-        //listview.setAdapter(array4);
+
         homework=new Homework();
-
-        //MyListAdapter adapter4=new MyListAdapter(this,0,AddListActivity.dataList2);
-        //MyListAdapter adapter5=AddListActivity.adapter4;
-        //ListView listview4=(ListView)findViewById(R.id.listView);
-        //listview4.setAdapter(adapter4);
+        remove=new Homework();
 
 
-        ListView listview =(ListView)findViewById(R.id.listView);
 
-        //ListView listview5=(ListView)findViewById(R.id.listView);
-        //listview5.setAdapter(adapter5);
+        listview =(ListView)findViewById(R.id.listView);
 
 
-        //homework.setTitle("aaaa");
-        //homework.setPage("10");
-        //items.add(homework);
 
-
-        ListAdapter adapter = new MyListAdapter(this, R.layout.rowdata, AddListActivity.dataList2);
+        adapter = new MyListAdapter(this, R.layout.rowdata, AddListActivity.dataList2);
         listview.setAdapter(adapter);
     }
 
@@ -66,6 +52,9 @@ public class List2Activity extends ActionBarActivity {
         Intent intent=new Intent(this,AddListActivity.class);
         startActivity(intent);
     }
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

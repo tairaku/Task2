@@ -33,60 +33,13 @@ public class MyListAdapter extends ArrayAdapter<Homework> {
         textView2 = (TextView)convertView.findViewById(R.id.page);
         textView2.setText(item.getPage());
 
+        TextView textView3;
+        textView3 = (TextView)convertView.findViewById(R.id.day);
+        textView3.setText(String.valueOf(item.getMonth())+"月"+String.valueOf(item.getDay())+"日");
+
+
         return convertView;
     }
 }
 
 
-/*public class MyListAdapter extends ArrayAdapter<Homework> {
-    private Context context;
-    private int resource;
-    private List<Homework> items;
-
-    public MyListAdapter(Context context1, int resource1, List<Homework> items1) {
-        super(context1, resource1, items1);
-
-        context = context1;
-        resource = resource1;
-        items = items1;
-
-    }
-
-    @Override
-    public Homework getItem(int position) {
-        return super.getItem(position);
-    }
-}*/
-
-/*
-public class MyListAdapter extends ArrayAdapter<String> {
-    public MyListAdapter(Context context, int resource, int textViewResourceId,
-                         List<String> objects) {
-        super(context, resource, textViewResourceId, objects);
-    }
-
-    public MyListAdapter(Context context, int resource, List<String> objects) {
-        super(context, resource, objects);
-    }
-
-    public MyListAdapter(Context context, int resource, int textViewResourceId, String[] objects) {
-        super(context, resource, textViewResourceId, objects);
-    }
-
-    public MyListAdapter(Context context, int resource, String[] objects) {
-        super(context, resource, objects);
-    }
-
-    public MyListAdapter(Context context, int resource, int textViewResourceId) {
-        super(context, resource, textViewResourceId);
-    }
-
-    public MyListAdapter(Context context, int resource) {
-        super(context, resource);
-    }
-
-    @Override
-    public String getItem(int position) {
-        return super.getItem(position);
-    }
-}*/

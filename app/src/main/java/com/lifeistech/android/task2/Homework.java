@@ -6,7 +6,9 @@ public class Homework {
     private String title;
     private String page;
     //private int page;
-    private Date date;
+    //private Date date;
+    private int month;
+    private int day;
 
     public String getTitle(){
         return title;
@@ -24,20 +26,20 @@ public class Homework {
         this.page=page1;
     }
 
-    /*public int getPage(){
-        return page;
-    }
-    public void SetPage(int page1){
-        this.page=page1;
-    }*/
-
-
-
-    public Date getDate(){
-        return date;
+    public int getMonth(){
+        return month;
     }
 
-    public void setDate(Date date1){
-        this.date=date1;
+    public void setMonth(int month1){
+        this.month=month1;
     }
+
+    public int getDay(){
+        return day;
+    }
+
+    public void setDay(int day1){
+        this.day=day1;
+    }
+
 }

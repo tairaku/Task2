@@ -22,8 +22,6 @@ public class MainActivity extends Activity {
         image=(ImageView)findViewById(R.id.imageView);
         image.setImageResource(R.drawable.img1);
 
-        //button=(Button)findViewById(R.id.btnToList);
-        //button.setOnClickListener((View.OnClickListener) this);
     }
 
     public void list(View v){ //リストに画面遷移
