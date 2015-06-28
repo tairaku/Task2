@@ -4,14 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+import android.view.*;
 import android.widget.Button;
+import android.widget.ImageView;
 
 
 public class MainActivity extends Activity {
     Button button;
+    ImageView image;
 
 
     @Override
@@ -19,13 +19,20 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        image=(ImageView)findViewById(R.id.imageView);
+        image.setImageResource(R.drawable.img1);
+
         //button=(Button)findViewById(R.id.btnToList);
         //button.setOnClickListener((View.OnClickListener) this);
     }
 
-    public void list(View v){
+    public void list(View v){ //リストに画面遷移
         Intent intent=new Intent(this,List2Activity.class);
         startActivity(intent);
+    }
+
+    public void change(View v){ //画像をクリックすると、画像が変更
+        image.setImageResource(R.drawable.img3);
     }
 
     @Override

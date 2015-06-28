@@ -40,7 +40,7 @@
     <Button
         android:layout_width="159dp"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="もどる"
         android:id="@+id/btnToMain"
         android:layout_gravity="right"
         android:layout_marginRight="15dp"

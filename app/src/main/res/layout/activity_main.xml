@@ -13,9 +13,9 @@
         android:layout_height="200dp"
         android:id="@+id/imageView"
         android:layout_marginTop="135dp"
-        android:background="@drawable/img1"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="change" />
 
     <Button
         android:layout_width="150dp"
