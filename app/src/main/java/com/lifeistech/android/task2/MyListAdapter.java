@@ -17,7 +17,7 @@ public class MyListAdapter extends ArrayAdapter<Homework> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // 特定の行(position)のデータを得る
-        Homework item = (Homework)getItem(position);
+        Homework item = (Homework) getItem(position);
 
         // convertViewは使い回しされている可能性があるのでnullの時だけ新しく作る
         if (null == convertView) {
@@ -26,16 +26,16 @@ public class MyListAdapter extends ArrayAdapter<Homework> {
 
         // CustomDataのデータをViewの各Widgetにセットする
         TextView textView1;
-        textView1 = (TextView)convertView.findViewById(R.id.title);
+        textView1 = (TextView) convertView.findViewById(R.id.title);
         textView1.setText(item.getTitle());
 
         TextView textView2;
-        textView2 = (TextView)convertView.findViewById(R.id.page);
+        textView2 = (TextView) convertView.findViewById(R.id.page);
         textView2.setText(item.getPage());
 
         TextView textView3;
-        textView3 = (TextView)convertView.findViewById(R.id.day);
-        textView3.setText(String.valueOf(item.getMonth())+"月"+String.valueOf(item.getDay())+"日");
+        textView3 = (TextView) convertView.findViewById(R.id.day);
+        textView3.setText(String.valueOf(item.getMonth()) + "月" + String.valueOf(item.getDay()) + "日");
 
 
         return convertView;

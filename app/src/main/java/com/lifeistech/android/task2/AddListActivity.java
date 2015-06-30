@@ -13,12 +13,8 @@ import java.util.ArrayList;
 
 public class AddListActivity extends Activity {
 
-    static ArrayAdapter<String> adapter2;
     static ArrayList<Homework> dataList2 = new ArrayList<Homework>();
-    Homework hw=new Homework();
-    static MyListAdapter adapter4;
-    EditText edittext;
-    EditText edittext2;
+
     String text;
     String page;
     int mon;
@@ -32,45 +28,47 @@ public class AddListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_list);
 
-        dayday=(TextView)findViewById(R.id.button4);
+        dayday = (TextView) findViewById(R.id.button4);
         dayday.setText("○月△日");
-
-
-        adapter4 = new MyListAdapter(this,android.R.layout.simple_list_item_1,dataList2);
 
         date_sp = getSharedPreferences("date", MODE_PRIVATE);
     }
 
-    public void addlist(View v){
+    public void addlist(View v) {
+
         //EditTextオブジェクトを取得
-        edittext=(EditText)findViewById(R.id.editText);
-        edittext2=(EditText)findViewById(R.id.editText2);
+        EditText edittext= (EditText) findViewById(R.id.editText);
+        EditText edittext2= (EditText) findViewById(R.id.editText2);
+
         //入力された文字を取得
         text = edittext.getText().toString();
-        page=edittext2.getText().toString();
-        mon= date_sp.getInt("month", -1);
-        da= date_sp.getInt("day", -1);
+        page = edittext2.getText().toString();
 
+        mon = date_sp.getInt("month", -1);
+        da = date_sp.getInt("day", -1);
 
         //要素の追加
+        Homework hw = new Homework();
         hw.setTitle(text);
         hw.setPage(page);
         hw.setMonth(mon);
         hw.setDay(da);
+
         dataList2.add(hw);
 
-        Intent intent=new Intent(this,List2Activity.class);
+        Intent intent = new Intent(this, List2Activity.class);
         startActivity(intent);
 
     }
 
 
-    public void datepick(View v){
+    public void datepick(View v) {
         Intent intent2 = new Intent(this, DataPicker.class);
         int requestCode = 123;
         startActivityForResult(intent2, requestCode);
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -87,13 +85,13 @@ public class AddListActivity extends Activity {
         switch (requestCode) {
             case 123:
                 if (resultCode == RESULT_OK) {
-                    mon=bundle.getInt("month");
-                    da=bundle.getInt("day");
-                    dayday.setText(String.valueOf(mon)+"月"+String.valueOf(da)+"日");
+                    mon = bundle.getInt("month");
+                    da = bundle.getInt("day");
+                    dayday.setText(String.valueOf(mon) + "月" + String.valueOf(da) + "日");
 
 
                 } else if (resultCode == RESULT_CANCELED) {
-                    
+
                 }
                 break;
 

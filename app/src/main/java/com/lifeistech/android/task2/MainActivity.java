@@ -10,26 +10,27 @@ import android.widget.ImageView;
 
 
 public class MainActivity extends Activity {
+
     Button button;
     ImageView image;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        image=(ImageView)findViewById(R.id.imageView);
+        image = (ImageView) findViewById(R.id.imageView);
         image.setImageResource(R.drawable.img1);
 
     }
 
-    public void list(View v){ //リストに画面遷移
-        Intent intent=new Intent(this,List2Activity.class);
+    public void list(View v) { //リストに画面遷移
+        Intent intent = new Intent(this, List2Activity.class);
         startActivity(intent);
     }
 
-    public void change(View v){ //画像をクリックすると、画像が変更
+    public void change(View v) {
+        //画像をクリックすると、画像が変更
         image.setImageResource(R.drawable.img3);
     }
 
@@ -54,7 +55,6 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }
