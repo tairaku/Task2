@@ -41,4 +41,5 @@
         android:background="#ffffffff"
         android:progress="60"
         android:max="100"/>
+
 </RelativeLayout>

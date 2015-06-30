@@ -23,6 +23,9 @@ public class ListDetails extends Activity {
 
         date_sp2 = getSharedPreferences("date2", MODE_PRIVATE);
 
+
+        /*うまく値がとれていない!*/
+
         pos2= date_sp2.getString("item_id2", "13");
         textview=(TextView)findViewById(R.id.textView13);
         textview11=(TextView)findViewById(R.id.textView11);

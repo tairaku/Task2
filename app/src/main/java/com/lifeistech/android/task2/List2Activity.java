@@ -30,9 +30,7 @@ public class List2Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list2);
-        String[] array ={"Apple","Banana","Orange"};
         ArrayAdapter<String> array3=AddListActivity.adapter2;
-        ArrayAdapter arrayadapter=new ArrayAdapter(this,R.layout.rowdata2,array);
         List<Homework> items = new ArrayList<Homework>();
 
         homework=new Homework();
@@ -50,6 +48,7 @@ public class List2Activity extends Activity {
 
 
         // アイテムクリック時ののイベントを追加
+        /*今のところ、値がちゃんととれていない。*/
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent,
                                     View view, int pos, long id) {
@@ -65,10 +64,6 @@ public class List2Activity extends Activity {
                 date_editor2.commit();
 
 
-                // 通知ダイアログを表示
-                /*Toast.makeText(ListViewSampleActivity.this,
-                        item, Toast.LENGTH_LONG
-                ).show();*/
             }
         });
     }
@@ -83,20 +78,8 @@ public class List2Activity extends Activity {
         startActivity(intent2);
     }
 
-    // リストビューのアイテムがクリックされた時に呼び出されるコールバックリスナーを登録します
-    /*listview.setOnItemClickListner(new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view,
-        int position, long id) {
-            ListView listView = (ListView) parent;
-            // クリックされたアイテムを取得します
-            String item = (String) listView.getItemAtPosition(position);
-            Toast.makeText(ListViewSampleActivity.this, item, Toast.LENGTH_LONG).show();
-        }
-    });*/
 
     public void goTopart(View v){
-        //id  =
         //date_editor2.putInt("item_id", item_id);
         //date_editor2.commit();
         //date_editor2.putString("title2", title2);
