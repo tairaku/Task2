@@ -11,8 +11,6 @@ import android.widget.TextView;
 public class ListDetails extends Activity {
 
     private SharedPreferences date_sp2;
-    int pos;
-    String pos2;
     TextView textview;
     TextView textview11;
 
@@ -21,20 +19,19 @@ public class ListDetails extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_details);
 
-        date_sp2 = getSharedPreferences("date2", MODE_PRIVATE);
-
+        textview = (TextView) findViewById(R.id.textView13);
+        textview11 = (TextView) findViewById(R.id.textView11);
 
         /*うまく値がとれていない!*/
+        date_sp2 = getSharedPreferences("date2", MODE_PRIVATE);
+        String pos2 = date_sp2.getString("workDay", "13");
 
-        pos2= date_sp2.getString("item_id2", "13");
-        textview=(TextView)findViewById(R.id.textView13);
-        textview11=(TextView)findViewById(R.id.textView11);
         textview11.setText("英語の教科書");
-        textview.setText(pos2/*List2Activity.item_id2*/+"日");
+        textview.setText(pos2 + "日");
     }
 
-    public void backToMenu(View v){
-        Intent intent=new Intent(this,List2Activity.class);
+    public void backToMenu(View v) {
+        Intent intent = new Intent(this, List2Activity.class);
         startActivity(intent);
     }
 
