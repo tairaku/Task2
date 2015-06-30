@@ -2,18 +2,21 @@ package com.lifeistech.android.task2;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.*;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 
 public class ListDetails extends Activity {
 
-    private SharedPreferences date_sp2;
-    int pos;
-    String pos2;
     TextView textview;
+
     TextView textview11;
 
     @Override
@@ -21,20 +24,26 @@ public class ListDetails extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_details);
 
-        date_sp2 = getSharedPreferences("date2", MODE_PRIVATE);
+        Homework homework = (Homework) getIntent().getExtras().getSerializable("homework");
+        Date now = new Date();
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(now);
+        calendar.set(Calendar.MONTH, homework.getMonth() - 1);
+        calendar.set(Calendar.DAY_OF_MONTH, homework.getDay());
+        Date limit = calendar.getTime();
 
+        int day_diff = (int) (limit.getTime() - now.getTime()) / (1000 * 60 * 60 * 24);
 
         /*うまく値がとれていない!*/
 
-        pos2= date_sp2.getString("item_id2", "13");
-        textview=(TextView)findViewById(R.id.textView13);
-        textview11=(TextView)findViewById(R.id.textView11);
+        textview = (TextView) findViewById(R.id.textView13);
+        textview11 = (TextView) findViewById(R.id.textView11);
         textview11.setText("英語の教科書");
-        textview.setText(pos2/*List2Activity.item_id2*/+"日");
+        textview.setText(day_diff + "日");
     }
 
-    public void backToMenu(View v){
-        Intent intent=new Intent(this,List2Activity.class);
+    public void backToMenu(View v) {
+        Intent intent = new Intent(this, List2Activity.class);
         startActivity(intent);
     }
 
