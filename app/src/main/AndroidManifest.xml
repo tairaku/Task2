@@ -28,6 +28,10 @@
             android:name=".DataPicker"
             android:label="@string/title_activity_data_picker" >
         </activity>
+        <activity
+            android:name=".ListDetails"
+            android:label="@string/title_activity_list_details" >
+        </activity>
     </application>
 
 </manifest>

@@ -20,14 +20,15 @@
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="カレンダー"
+        android:text="リスト"
         android:id="@+id/btnToList"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:background="#ffff7228"
         android:onClick="list"
-        android:clickable="true" />
+        android:clickable="true"
+        android:textStyle="bold" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"

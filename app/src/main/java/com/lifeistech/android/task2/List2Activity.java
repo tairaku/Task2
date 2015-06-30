@@ -1,25 +1,30 @@
 package com.lifeistech.android.task2;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import android.view.*;
+import android.widget.*;
+import android.content.SharedPreferences.Editor;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
-public class List2Activity extends ActionBarActivity {
+public class List2Activity extends Activity {
 
     Homework homework;
     ListView listview;
     ListAdapter adapter;
     Homework remove;
+    private SharedPreferences date_sp2;
+    private Editor date_editor2;
+    int month2;
+    int day2;
+    String title2;
+    static int item_id;
+    static String item_id2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +38,8 @@ public class List2Activity extends ActionBarActivity {
         homework=new Homework();
         remove=new Homework();
 
-
+        date_sp2 = getSharedPreferences("date2", MODE_PRIVATE);
+        date_editor2 = date_sp2.edit();
 
         listview =(ListView)findViewById(R.id.listView);
 
@@ -41,6 +47,30 @@ public class List2Activity extends ActionBarActivity {
 
         adapter = new MyListAdapter(this, R.layout.rowdata, AddListActivity.dataList2);
         listview.setAdapter(adapter);
+
+
+        // アイテムクリック時ののイベントを追加
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent,
+                                    View view, int pos, long id) {
+
+                // 選択アイテムを取得
+                ListView listView2 = (ListView) parent;
+                String item = (String) listView2.getItemAtPosition(pos);
+                //itemid = Integer.parseInt(item);
+                //item_id=pos;
+                //item_id=((ListView) parent).getItemAtPosition(pos);
+                item_id2=(String)((ListView) parent).getItemAtPosition(pos);
+                date_editor2.putString("item_id2", item_id2);
+                date_editor2.commit();
+
+
+                // 通知ダイアログを表示
+                /*Toast.makeText(ListViewSampleActivity.this,
+                        item, Toast.LENGTH_LONG
+                ).show();*/
+            }
+        });
     }
 
     public void back(View v){
@@ -49,8 +79,32 @@ public class List2Activity extends ActionBarActivity {
     }
 
     public void addlist(View v){
-        Intent intent=new Intent(this,AddListActivity.class);
-        startActivity(intent);
+        Intent intent2=new Intent(this,AddListActivity.class);
+        startActivity(intent2);
+    }
+
+    // リストビューのアイテムがクリックされた時に呼び出されるコールバックリスナーを登録します
+    /*listview.setOnItemClickListner(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view,
+        int position, long id) {
+            ListView listView = (ListView) parent;
+            // クリックされたアイテムを取得します
+            String item = (String) listView.getItemAtPosition(position);
+            Toast.makeText(ListViewSampleActivity.this, item, Toast.LENGTH_LONG).show();
+        }
+    });*/
+
+    public void goTopart(View v){
+        //id  =
+        //date_editor2.putInt("item_id", item_id);
+        //date_editor2.commit();
+        //date_editor2.putString("title2", title2);
+        //date_editor2.putInt("month2", month2);
+        //date_editor2.putInt("day2", day2);
+        //date_editor2.commit();
+        Intent intent3=new Intent(this,ListDetails.class);
+        startActivity(intent3);
     }
 
 
