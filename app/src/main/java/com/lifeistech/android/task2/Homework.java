@@ -1,8 +1,10 @@
 package com.lifeistech.android.task2;
 
 import java.util.*;
+import java.io.Serializable;
 
-public class Homework {
+public class Homework implements Serializable {
+
     private String title;
     private String page;
     //private int page;
