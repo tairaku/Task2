@@ -41,5 +41,3 @@ public class MyListAdapter extends ArrayAdapter<Homework> {
         return convertView;
     }
 }
-
-
