@@ -34,16 +34,19 @@ public class List2Activity extends Activity {
 
 
         // アイテムクリック時ののイベントを追加
-        /*今のところ、値がちゃんととれていない。*/
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent,
                                     View view, int pos, long id) {
 
                 // 選択アイテムを取得
                 Homework work = adapter.getItem(pos);
+                String workTitle = "" + work.getTitle();
                 String workDay = "" + work.getDay();
+                String workMonth = "" + work.getMonth();
 
+                date_editor2.putString("workTitle", workTitle);
                 date_editor2.putString("workDay", workDay);
+                date_editor2.putString("workMonth", workMonth);
                 date_editor2.commit();
 
                 Intent intent3 = new Intent(List2Activity.this, ListDetails.class);

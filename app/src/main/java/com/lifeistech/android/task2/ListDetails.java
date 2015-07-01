@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.*;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.Calendar;
 
 
 public class ListDetails extends Activity {
@@ -13,6 +16,7 @@ public class ListDetails extends Activity {
     private SharedPreferences date_sp2;
     TextView textview;
     TextView textview11;
+    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +25,36 @@ public class ListDetails extends Activity {
 
         textview = (TextView) findViewById(R.id.textView13);
         textview11 = (TextView) findViewById(R.id.textView11);
+        image = (ImageView) findViewById(R.id.imageView4);
+        image.setImageResource(R.drawable.img5);
 
-        /*うまく値がとれていない!*/
+        /*値を取得*/
         date_sp2 = getSharedPreferences("date2", MODE_PRIVATE);
-        String pos2 = date_sp2.getString("workDay", "13");
+        String worktitle=date_sp2.getString("workTitle","-1");
+        String workmonth=date_sp2.getString("workMonth", "-1");
+        String workday = date_sp2.getString("workDay", "-1");
+        int deadline=Integer.valueOf(workmonth)*30+Integer.valueOf(workday);//仮の計算
 
-        textview11.setText("英語の教科書");
-        textview.setText(pos2 + "日");
+        /*今日の日付とってくる*/
+        Calendar cal = Calendar.getInstance();
+        int month = cal.get(Calendar.MONTH)+1;// 1 - 12
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        int today = month*30+day; //仮
+
+        int intday = deadline-today;
+        String dayday=String.valueOf(intday);
+
+        if(intday==1){ //締め切りまで、あと1日なら画像が変化
+            image.setImageResource(R.drawable.img3);
+        }
+        else if(intday<=5 && intday>1){
+            image.setImageResource(R.drawable.img6);
+        }else{
+            image.setImageResource(R.drawable.img5);
+        }
+
+        textview11.setText(worktitle);
+        textview.setText(dayday + "日!!!");
     }
 
     public void backToMenu(View v) {
